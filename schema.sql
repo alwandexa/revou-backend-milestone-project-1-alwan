@@ -7,7 +7,7 @@ DROP table authors;
 DROP table publishers;
 
 CREATE TABLE authors (
-    author_id INT AUTO PRIMARY KEY AUTO_INCREMENT,
+    author_id INT PRIMARY KEY AUTO_INCREMENT,
     author_name VARCHAR(100)
 );
 
