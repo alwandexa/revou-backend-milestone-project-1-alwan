@@ -59,7 +59,7 @@ LIMIT 10;
 CREATE INDEX idx_sales_book_id ON sales (book_id);
 ```
 
-- Create an index on the book_id column in the sales table to improve the performance of the join.
+- Create an index on the `book_id` column in the `sales` table to improve the performance of the join.
 
 ## 3. Retrieve the average price of books in each genre
 
@@ -74,7 +74,7 @@ GROUP BY genre;
 ### Analysis
 
 - The main bottleneck in this query is the `GROUP BY` operation, which can be computationally expensive, especially if there are a large number of unique genres.
-- The full table scan required to perform the aggregation can also be a performance issue if the books table is large.
+- The full table scan required to perform the aggregation can also be a performance issue if the `books` table is large.
 
 ### Optimization
 
@@ -94,7 +94,7 @@ SELECT * FROM sales WHERE book_id = 456;
 
 ### Analysis
 
-- This query is a simple lookup on the sales table, filtering the rows by the book_id column.
+- This query is a simple lookup on the `sales` table, filtering the rows by the `book_id` column.
 - The query is straightforward and should be relatively fast, as it doesn't involve any joins or complex operations.
 - `SELECT *` often retrieving more columns from the database than application really needs to function.
 
@@ -120,9 +120,9 @@ GROUP BY b.book_id;
 
 ### Analysis
 
-- The main potential bottleneck in this query is the join operation between the books and sales tables.
-- If the sales table is large, the join operation can be computationally expensive and slow down the query.
-- The WHERE clause, which filters the books by the publication_date column, can also be a potential bottleneck.
+- The main potential bottleneck in this query is the join operation between the `books` and `sales` tables.
+- If the `sales` table is large, the join operation can be computationally expensive and slow down the query.
+- The `WHERE` clause, which filters the books by the `publication_date` column, can also be a potential bottleneck.
 
 ### Optimization
 
@@ -131,5 +131,5 @@ CREATE INDEX idx_sales_book_id ON sales (book_id);
 CREATE INDEX idx_books_publication_date ON books (publication_date);
 ```
 
-- Create an index on the book_id column in the sales table to improve the performance of the join.
-- Create an index on the publication_date column in the books table to improve the performance of the WHERE clause.
+- Create an index on the `book_id` column in the `sales` table to improve the performance of the join.
+- Create an index on the `publication_date` column in the `books` table to improve the performance of the `WHERE` clause.
